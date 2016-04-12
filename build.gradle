@@ -1,0 +1,85 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+    }
+}
+
+configure(allprojects) { project ->
+    ext.javaVersion = '1.8'
+    ext.projectVersion = '0.0.1'
+    ext.tagVersion = projectVersion
+
+    version = projectVersion
+    group = 'me.placebo'
+
+    apply plugin: 'idea'
+    configure(subprojects.findAll { new File(it.projectDir, 'src').directory }) {
+        apply plugin: 'java'
+    }
+}
+
+configure(subprojects) { project ->
+    if (project.plugins.hasPlugin('java')) {
+        manifest {
+            attributes 'provider': 'gradle'
+        }
+
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+
+        [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+        javadoc {
+            configure(options) {
+                charSet = 'UTF-8'
+                encoding = 'UTF-8'
+                docEncoding = 'UTF-8'
+            }
+        }
+
+        task javadocJar(type: Jar, dependsOn: javadoc) {
+            classifier = 'javadoc'
+            from javadoc.destinationDir
+        }
+
+        task sourceJar(type: Jar) {
+            classifier = 'sources'
+            from sourceSets.main.allSource
+        }
+
+        artifacts {
+            archives jar
+            archives sourceJar
+            archives javadocJar
+        }
+
+        repositories {
+            mavenCentral()
+        }
+
+        dependencies {
+            compile 'org.slf4j:slf4j-api:1.7.7'
+
+            testCompile 'ch.qos.logback:logback-classic:1.1.3'
+            testCompile 'junit:junit:4.11'
+            testCompile 'org.hamcrest:hamcrest-all:1.3'
+        }
+    }
+}
+
+project(':wordcount') {
+    archivesBaseName = 'wordcount'
+    version = 0.1
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": "Getting Word Count from file in Hadoop  ", "Implementation-Version": version)
+        }
+    }
+
+    dependencies {
+        compile 'org.apache.hadoop:hadoop-core:0.20.2'
+    }
+}

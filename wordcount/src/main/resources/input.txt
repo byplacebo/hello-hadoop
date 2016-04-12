@@ -1,0 +1,5 @@
+﻿Two parties emerged to fill the void, with neither Netscape's help nor approval: The RSS-DEV Working Group and Dave Winer, whose UserLand Software had published some of the first publishing tools outside Netscape that could read and write RSS.
+
+Winer published a modified version of the RSS 0.91 specification on the UserLand website, covering how it was being used in his company's products, and claimed copyright to the document.[10] A few months later, UserLand filed a U.S. trademark registration for RSS, but failed to respond to a USPTO trademark examiner's request and the request was rejected in December 2001.[11]
+
+The RSS-DEV Working Group, a project whose members included Guha and representatives of O'Reilly Media and Moreover, produced RSS 1.0 in December 2000.[12] This new version, which reclaimed the name RDF Site Summary from RSS 0.9, reintroduced support for RDF and added XML namespaces support, adopting elements from standard metadata vocabularies such as Dublin Core.
