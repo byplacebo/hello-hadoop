@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/dataexpo09/dataexpo09.iml" filepath="$PROJECT_DIR$/dataexpo09/dataexpo09.iml" />
       <module fileurl="file://$PROJECT_DIR$/hello-hadoop.iml" filepath="$PROJECT_DIR$/hello-hadoop.iml" />
       <module fileurl="file://$PROJECT_DIR$/wordcount/wordcount.iml" filepath="$PROJECT_DIR$/wordcount/wordcount.iml" />
     </modules>

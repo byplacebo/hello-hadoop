@@ -83,3 +83,18 @@ project(':wordcount') {
         compile 'org.apache.hadoop:hadoop-core:0.20.2'
     }
 }
+
+project(':dataexpo09') {
+    archivesBaseName = 'dataexpo'
+    version = 0.1
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": "Extracting Delay Count from files in Hadoop  ", "Implementation-Version": version)
+        }
+    }
+
+    dependencies {
+        compile 'org.apache.hadoop:hadoop-core:0.20.2'
+    }
+}
